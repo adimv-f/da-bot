@@ -36,7 +36,7 @@ namespace DaBot.Controllers
                     _vkApi.Messages.Send(new MessagesSendParams
                     {
                         PeerId = msg.PeerId.Value,
-                        Message = msg.Text,
+                        Message = string.IsNullOrEmpty(msg.Text) ? "WRONG" : msg.Text,
                         RandomId = new Random().Next()
                     });
                     return Ok("ok");
