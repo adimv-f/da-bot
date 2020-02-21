@@ -13,7 +13,7 @@ namespace DaBot
         public string Type { get; set; }
 
         [JsonPropertyName("object")]
-        public JsonDocument Object { get; set; }
+        public JsonElement Object { get; set; }
 
         [JsonPropertyName("group_id")]
         public long GroupId { get; set; }

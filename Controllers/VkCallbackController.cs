@@ -36,14 +36,14 @@ namespace DaBot.Controllers
                 case "message_new":
                     _vkApi.Messages.Send(new MessagesSendParams
                     {
-                        PeerId = long.Parse(request.Object.RootElement.GetProperty("peer_id").ToString()),
+                        PeerId = long.Parse(request.Object.GetProperty("peer_id").ToString()),
                         Message = "понял принял",
                         RandomId = new Random().Next()
                     });
                     break;
             }
             
-            return Ok("ok");
+            return Ok();
         }
     }
 }
