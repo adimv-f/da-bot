@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace DaBot
 {
     public class UpdateDTO
     {
-        [JsonPropertyName("type")]
+        [JsonProperty("type")]
         public string Type { get; set; }
 
-        [JsonPropertyName("object")]
-        public JsonElement Object { get; set; }
+        [JsonProperty("object")]
+        public JObject Object { get; set; }
 
-        [JsonPropertyName("group_id")]
+        [JsonProperty("group_id")]
         public long GroupId { get; set; }
 
-        [JsonPropertyName("secret")]
+        [JsonProperty("secret")]
         public string Secret { get; set; }
     }
 }
