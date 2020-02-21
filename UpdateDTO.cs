@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -7,16 +8,16 @@ namespace DaBot
     [Serializable]
     public class UpdateDTO
     {
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
-        [JsonProperty("object")]
+        [JsonPropertyName("object")]
         public JObject Object { get; set; }
 
-        [JsonProperty("group_id")]
+        [JsonPropertyName("group_id")]
         public long GroupId { get; set; }
 
-        [JsonProperty("secret")]
+        [JsonPropertyName("secret")]
         public string Secret { get; set; }
     }
 }
