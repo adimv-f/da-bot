@@ -14,6 +14,7 @@ using VkNet.Utils;
 namespace DaBot.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class VkCallbackController : Controller
     {
         private readonly IVkApi _vkApi;
@@ -42,10 +43,10 @@ namespace DaBot.Controllers
                         Message = msg.Text,
                         RandomId = new Random().Next()
                     });
-                    break;
+                    return Ok("ok");
             }
-            
-            return Ok("ok");
+
+            return BadRequest();
         }
     }
 }
