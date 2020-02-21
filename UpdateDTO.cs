@@ -1,8 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace DaBot
 {
+    [Serializable]
     public class UpdateDTO
     {
         [JsonProperty("type")]
