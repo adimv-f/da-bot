@@ -43,7 +43,7 @@ namespace DaBot.Controllers
                     break;
             }
             
-            return Ok();
+            return Ok("ok");
         }
     }
 }
