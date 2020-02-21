@@ -32,13 +32,20 @@ namespace DaBot.Controllers
                 
                 case "message_new":
                     var msg = Message.FromJson(new VkResponse(request.Object));
-                    
-                    _vkApi.Messages.Send(new MessagesSendParams
+
+                    if (msg.Text.ToLower().EndsWith("да"))
                     {
-                        PeerId = msg.PeerId.Value,
-                        Message = string.IsNullOrEmpty(msg.Text) ? "WRONG" : msg.Text,
-                        RandomId = new Random().Next()
-                    });
+                        _vkApi.Messages.Send(new MessagesSendParams
+                        {
+                            PeerId = msg.PeerId.Value,
+                            // Message = string.IsNullOrEmpty(msg.Text) ? "WRONG" : msg.Text,
+                            Message = "Пизда",
+                            RandomId = new Random().Next(),
+                            ForwardMessages = new []{ msg.Id.Value }
+                        });
+                    }
+                    
+
                     return Ok("ok");
             }
 
