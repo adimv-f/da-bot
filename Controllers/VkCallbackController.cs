@@ -41,7 +41,7 @@ namespace DaBot.Controllers
                             // Message = string.IsNullOrEmpty(msg.Text) ? "WRONG" : msg.Text,
                             Message = "Пизда",
                             RandomId = new Random().Next(),
-                            ForwardMessages = new []{ msg.Id.Value }
+                            ForwardMessages = new []{ msg.ConversationMessageId.Value }
                         });
                     }
                     
