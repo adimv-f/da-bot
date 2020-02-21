@@ -1,23 +1,23 @@
 ﻿using System;
-using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
 
 namespace DaBot
 {
     [Serializable]
     public class UpdateDTO
     {
-        [JsonPropertyName("type")]
+        [JsonProperty("type")]
         public string Type { get; set; }
 
-        [JsonPropertyName("object")]
+        [JsonProperty("object")]
         public JObject Object { get; set; }
 
-        [JsonPropertyName("group_id")]
+        [JsonProperty("group_id")]
         public long GroupId { get; set; }
 
-        [JsonPropertyName("secret")]
+        [JsonProperty("secret")]
         public string Secret { get; set; }
     }
 }

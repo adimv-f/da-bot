@@ -29,6 +29,7 @@ namespace DaBot
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddSingleton<IVkApi>(sp =>
             {
                 var api = new VkApi();
