@@ -4,6 +4,8 @@ using VkNet.Abstractions;
 using VkNet.Model;
 using VkNet.Model.RequestParams;
 using VkNet.Utils;
+using System.Text.RegularExpressions;
+
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -33,7 +35,13 @@ namespace DaBot.Controllers
                 case "message_new":
                     var msg = Message.FromJson(new VkResponse(request.Object));
 
-                    if (msg.Text.ToLower().EndsWith("да"))
+                    var regex = new Regex(@"да+[\W]*$", RegexOptions.Compiled);
+
+                    MatchCollection matches = regex.Matches(msg.Text.ToLower());
+
+                    int random = new Random().Next(100);
+
+                    if (matches.Count == 1 && random > 50)
                     {
                         _vkApi.Messages.Send(new MessagesSendParams
                         {
